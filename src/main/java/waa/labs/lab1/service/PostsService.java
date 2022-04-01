@@ -13,5 +13,7 @@ public interface PostsService {
 
     public List<PostDto> getAllPosts();
 
+    public List<PostDto> getAllPostsByAuthor(String author);
+
     public PostDto getPostById(long postId);
 }

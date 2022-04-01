@@ -45,6 +45,11 @@ public class PostsServiceImpl implements PostsService {
     }
 
     @Override
+    public List<PostDto> getAllPostsByAuthor(String author) {
+        return (List<PostDto>) listMapperPostToDto.mapList(postsRepo.getAllByAuthor(author), new PostDto()) ;
+    }
+
+    @Override
     public PostDto getPostById(long postId) {
         return (PostDto) modelMapper.map(postsRepo.getById(postId), PostDto.class);
     }

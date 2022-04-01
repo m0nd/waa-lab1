@@ -8,7 +8,7 @@ import waa.labs.lab1.service.PostsServiceV2;
 import java.util.List;
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/api/posts")
 public class PostsControllerV2 {
     private final PostsServiceV2 postsService;
 
@@ -17,8 +17,8 @@ public class PostsControllerV2 {
     }
 
     @GetMapping(value = "/", headers = "X-API-VERSION=2")
-    public List<PostDtoV2> getAll() {
-        return postsService.getAllPostsV2();
+    public List<PostDtoV2> getAll(@RequestParam(value = "filter", required = false) String author) {
+        return author == null ? postsService.getAllPostsV2() : postsService.getAllPostsByAuthorV2(author);
     }
 
     @GetMapping(value = "/{id}", headers = "X-API-VERSION=2")

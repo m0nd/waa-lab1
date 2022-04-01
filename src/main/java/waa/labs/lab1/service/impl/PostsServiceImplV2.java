@@ -48,6 +48,11 @@ public class PostsServiceImplV2 implements PostsServiceV2 {
     }
 
     @Override
+    public List<PostDtoV2> getAllPostsByAuthorV2(String author) {
+        return (List<PostDtoV2>) listMapperPostToDto.mapList(postsRepo.getAllByAuthor(author), new PostDtoV2());
+    }
+
+    @Override
     public PostDtoV2 getPostByIdV2(long postId) {
         return (PostDtoV2) modelMapper.map(postsRepo.getById(postId), PostDtoV2.class);
     }

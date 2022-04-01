@@ -22,8 +22,8 @@ public class PostsController {
     }
 
     @GetMapping("/")
-    public List<PostDto> getAll() {
-        return postsService.getAllPosts();
+    public List<PostDto> getAll(@RequestParam(value = "filter", required = false) String author) {
+        return author == null ? postsService.getAllPosts() : postsService.getAllPostsByAuthor(author);
     }
 
     @GetMapping("/{id}")

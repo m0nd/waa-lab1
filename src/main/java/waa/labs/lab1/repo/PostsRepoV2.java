@@ -16,5 +16,7 @@ public interface PostsRepoV2 {
 
     public List<PostV2> getAll();
 
+    public List<PostV2> getAllByAuthor(String author);
+
     public PostV2 getById(long id);
 }

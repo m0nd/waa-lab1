@@ -18,5 +18,7 @@ public interface PostsRepo {
 
     public List<Post> getAll();
 
+    public List<Post> getAllByAuthor(String author);
+
     public Post getById(long id);
  }

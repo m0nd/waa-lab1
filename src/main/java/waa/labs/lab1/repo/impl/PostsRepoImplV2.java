@@ -50,6 +50,11 @@ public class PostsRepoImplV2 implements PostsRepoV2 {
     }
 
     @Override
+    public List<PostV2> getAllByAuthor(String author) {
+        return posts.stream().filter(post -> post.getAuthor().equals(author)).collect(Collectors.toList());
+    }
+
+    @Override
     public PostV2 getById(long id) {
         return posts.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
     }

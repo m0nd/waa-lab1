@@ -50,6 +50,11 @@ public class PostsRepoImpl implements PostsRepo {
     }
 
     @Override
+    public List<Post> getAllByAuthor(String author) {
+        return posts.stream().filter(post -> post.getAuthor().equals(author)).collect(Collectors.toList());
+    }
+
+    @Override
     public Post getById(long id) {
         return posts.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
     }

@@ -1,5 +1,6 @@
 package waa.labs.lab1.service;
 
+import waa.labs.lab1.domain.dto.PostDto;
 import waa.labs.lab1.domain.dto.PostDtoV2;
 
 import java.util.List;
@@ -12,6 +13,8 @@ public interface PostsServiceV2 {
     public void deletePostByIdV2(long postId);
 
     public List<PostDtoV2> getAllPostsV2();
+
+    public List<PostDtoV2> getAllPostsByAuthorV2(String author);
 
     public PostDtoV2 getPostByIdV2(long postId);
 }
